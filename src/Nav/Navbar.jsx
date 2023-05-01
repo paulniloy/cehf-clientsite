@@ -14,7 +14,7 @@ const Navbar = () => {
                 <Link to={"/blogs"} className='p-2 rounded-xl hover:scale-110 hover:bg-purple-400'>Blogs</Link>
                 <div className='p-2 rounded-xl hover:scale-110 hover:bg-purple-400'>
                     {
-                        user ? <p>user</p> : <p>hello</p>
+                        user ? <p>user</p> : <Link to={"/login"}>Login</Link>
                     }
                 </div>
             </article>

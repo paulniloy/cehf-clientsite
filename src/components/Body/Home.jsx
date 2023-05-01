@@ -3,14 +3,24 @@ import banner from '../../assets/banner.jpg'
 import { useLoaderData } from 'react-router-dom';
 import Chef from '../chef details/Chef';
 import "./Home.css"
-import { IoAddCircle } from "react-icons/io5";
+import { IoStar, IoStarHalf } from "react-icons/io5";
 
 const Home = () => {
     const chefdetails = useLoaderData();
     return (
         <div>
-            <div className='text-white flex justify-center items-center' id='reservation'>
+            <div className='text-white flex flex-col justify-center items-center' id='reservation'>
+                <div className='flex gap-5 mb-5 scale-150'>
+                    <IoStar className='fill-yellow-600'/>
+                    <IoStar className='fill-yellow-600'/>
+                    <IoStar className='fill-yellow-600'/>
+                    <IoStar className='fill-yellow-600'/>
+                    <IoStarHalf className='fill-yellow-600'/>
+                </div>
                 <div className=' border-2 rounded-xl hover:bg-yellow-600 hover:text-white p-5 border-yellow-600 text-6xl font-bold text-yellow-600'>Welcome</div>
+                <div className='w-1/2 text-center mt-10 text-yellow-600'>
+                Welcome to our hotel! We are delighted to have you as our guest and we hope you have a comfortable and enjoyable stay with us. If you need anything during your time here, please don't hesitate to ask our friendly staff who are always available to assist you. Thank you for choosing our hotel for your accommodation needs.
+                </div>
             </div>
             <div className='flex items-center justify-center gap-10 p-10'>
                 <div>
