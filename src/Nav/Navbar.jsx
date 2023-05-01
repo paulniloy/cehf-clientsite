@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import logo from "../assets/logo.png"
 
 const Navbar = () => {
+    const [user,seruser] = useState(false)
     return (
         <div>
-            this is the navbar
+            <article className='bg-amber-50 flex justify-around items-center'>
+                <div>
+                    <img className='w-40' src={logo} alt="" />
+                </div>
+                <div className='p-2 rounded-xl hover:scale-110 hover:bg-purple-400'>Home</div>
+                <div className='p-2 rounded-xl hover:scale-110 hover:bg-purple-400'>Blogs</div>
+                <div className='p-2 rounded-xl hover:scale-110 hover:bg-purple-400'>
+                    {
+                        user ? <p>user</p> : <p>hello</p>
+                    }
+                </div>
+            </article>
         </div>
     );
 };
