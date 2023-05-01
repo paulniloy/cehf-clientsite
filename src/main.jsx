@@ -7,15 +7,21 @@ import {
 import './index.css'
 import Main from './components/Main/Main';
 import Home from './components/Body/Home';
+import Chef from './components/chef details/Chef';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children:[
+    children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch("http://localhost:3000/chef")
+      },
+      {
+        path: "/chef",
+        element: <Chef></Chef>
       }
     ]
   },
