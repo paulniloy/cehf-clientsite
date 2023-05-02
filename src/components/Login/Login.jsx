@@ -1,10 +1,14 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../provider/Authprovider';
 import { IoLogoGoogle, IoLogoGithub } from "react-icons/io5";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
+    const from = location.state?.from?.pathname
     
     const {user, google, github, signin} = useContext(Authcontext);
 
@@ -17,7 +21,8 @@ const Login = () => {
         signin(email,password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
+            form.reset()
+            navigate(from)
           })
     }
     const handlegoogle = () =>{

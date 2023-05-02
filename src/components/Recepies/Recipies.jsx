@@ -7,7 +7,6 @@ import Extra from '../extra info/Extra';
 const Recipies = () => {
     const {id} = useParams();
     const fulldetails = useLoaderData();
-    console.log(fulldetails);
     const {name, picture, bio, yearsOfExperience, numberOfRecipes, likes, recipies,image, food} = fulldetails;
     return (
         <div>

@@ -3,7 +3,7 @@ import { FaFacebook, FaGooglePlusG, FaTwitter, FaPinterest } from 'react-icons/f
 
 const Footer = () => {
     return (
-        <div className='bg-black items-start text-white flex justify-around p-10'>
+        <div className='bg-black lg:flex lg:flex-row items-start text-white flex-col justify-around p-10'>
             <article>
                 <div className='text-xl font-bold'>
                     Dinner Hours
@@ -21,7 +21,7 @@ const Footer = () => {
                 </div>
             </article>
             <article>
-                <div className='text-xl font-bold'>
+                <div className='text-xl font-bold mt-5'>
                     Make a booking
                 </div>
                 <div>
@@ -33,7 +33,7 @@ const Footer = () => {
                 </div>
             </article>
             <article>
-                <div>Contact Us</div>
+                <div className=' font-medium mt-5'>Contact Us</div>
                 <div>
                     <div>
                         Address : 143 - 158, Bernie Road, Thailand
@@ -47,7 +47,7 @@ const Footer = () => {
                 </div>
             </article>
             <article className='flex flex-col items-center'>
-                <div>We are in Social</div>
+                <div className='font-medium mt-5'>We are in Social</div>
                 <div className='flex gap-5 p-5'>
                     <FaFacebook className='h-10 w-10 hover:scale-110'/>
                     <FaGooglePlusG className='h-10 w-10 hover:scale-110'/>
