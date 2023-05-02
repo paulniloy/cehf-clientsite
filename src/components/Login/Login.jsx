@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../provider/Authprovider';
 import { IoLogoGoogle, IoLogoGithub } from "react-icons/io5";
 
 const Login = () => {
+    const [error, seterror] = useState('')
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location);
     const from = location.state?.from?.pathname
     
-    const {user, google, github, signin} = useContext(Authcontext);
+    const {loggeduser, google, github, signin} = useContext(Authcontext);
 
     const handlelogin = (event) =>{
         event.preventDefault()
@@ -22,8 +23,11 @@ const Login = () => {
         .then((userCredential) => {
             const user = userCredential.user;
             form.reset()
-            navigate(from)
+            navigate(from || "/")
           })
+        .catch(error=>{
+            seterror(error.message)
+        })
     }
     const handlegoogle = () =>{
         google()
@@ -62,6 +66,9 @@ const Login = () => {
                 <button onClick={handlegoogle}><IoLogoGoogle className='h-10 w-10'/></button>
                 <button onClick={handlegit}><IoLogoGithub className='h-10 w-10'/></button>
             </div>
+                {
+                    loggeduser ? "you've successfully logged in" : error
+                }
             </form>
         </div>
     );

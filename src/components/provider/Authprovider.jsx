@@ -8,7 +8,7 @@ const auth = getAuth(app);
 
 
 const Authprovider = ({children}) => {
-    
+    const [name, setname] = useState('')
     const [loggeduser, setloggeduser] = useState(null)
     const [email, setemail] = useState(null)
     const [loader, setloader] = useState(true)
@@ -37,9 +37,24 @@ const Authprovider = ({children}) => {
         .then()
         .catch()
     }
+    const profile = (name, url) =>{
+        const user = auth.currentUser;
+        if(user){
+            return updateProfile(user, {
+                displayName: `${name}`, photoURL: `${url}`
+            }).then(() => {
+                setloader(true);
+                // Profile updated!
+                // ...
+            }).catch((error) => {
+                // An error occurred
+                // ...
+            });
+        }
+    }
 
     const authinfo = {
-        google,createmailandpass, github, signin, loggeduser, logout, loader, email
+        google,createmailandpass, github, signin, loggeduser, logout, loader, email, profile, name, setname
     }
 
     useEffect(()=>{
@@ -48,6 +63,7 @@ const Authprovider = ({children}) => {
             setloader(false)
             console.log(user);
             setemail(user.email)
+            setname(user.displayName)
         })
         return ()=>{
             return unsubscribe()
