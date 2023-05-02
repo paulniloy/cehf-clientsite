@@ -1,8 +1,14 @@
 import React from 'react';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import Pdf from '../pdf/Pdf';
 
 const Blog = () => {
     return (
         <div>
+            <Pdf/>
+            <PDFDownloadLink document={<Pdf/>} fileName='someone'>
+                <button>Download</button>
+            </PDFDownloadLink>
             <div className='bg-yellow-100 p-20'>
                 <div className='text-3xl font-bold'>Qus. What are the differences between controlled and uncontrolled components?</div>
                 <div className='p-10 italic'>Ans. In React, controlled and uncontrolled components refer to the way that form inputs are managed and updated in the component's state. The main differences between controlled and uncontrolled components are:

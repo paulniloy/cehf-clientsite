@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoHeartCircleSharp } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Chef = ({ chefdetails }) => {
     const { id, picture, name, yearsOfExperience, likes, numberOfRecipes } = chefdetails;
@@ -16,7 +16,7 @@ const Chef = ({ chefdetails }) => {
                     <p>Years of Experiences : {yearsOfExperience}</p>
                     <p>Total likes :{likes}</p>
                 </div>
-                <Link to={`/recipies/${id}`} className='bg-green-400 p-2 rounded-xl mb-10'>view recipes</Link>
+                <NavLink to={`/recipies/${id}`} className='bg-green-400 p-2 rounded-xl mb-10'>view recipes</NavLink>
             </div>
         </div>
     );

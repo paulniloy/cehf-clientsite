@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import logo from "../assets/logo.png"
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../components/provider/Authprovider';
 
 const Navbar = () => {
@@ -16,14 +16,14 @@ const Navbar = () => {
                     <img className='w-40 color-white' src={logo} alt="" />
                 </div>
                 <h1 className='font-bold text-3xl italic'>Chef Paradise</h1>
-                <Link to={"/"} className='p-2 rounded-xl  hover:bg-yellow-400'>Home</Link>
-                <Link to={"/blogs"} className='p-2 rounded-xl hover:bg-yellow-400'>Blogs</Link>
+                <NavLink to={"/"} className='p-2 rounded-xl  hover:bg-yellow-400'>Home</NavLink>
+                <NavLink to={"/blogs"} className='p-2 rounded-xl hover:bg-yellow-400'>Blogs</NavLink>
                 <div className='p-2 rounded-xl hover:bg-yellow-400'>
                     {
-                        loggeduser ? <p>{name}</p> : <Link to={"/login"}>Login</Link>
+                        loggeduser ? <p>{name}</p> : <NavLink to={"/login"}>Login</NavLink>
                     }
                 </div>
-                <Link className='p-2 rounded-xl hover:bg-yellow-400' onClick={handlgelogout} to={"/login"}>Logout</Link>
+                <NavLink className='p-2 rounded-xl hover:bg-yellow-400' onClick={handlgelogout} to={"/login"}>Logout</NavLink>
             </article>
         </div>
     );
