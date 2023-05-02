@@ -1,16 +1,24 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
-import { FacebookAuthProvider, GithubAuthProvider , GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider , GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../../firebase.config';
 
 export const Authcontext = createContext(null);
 const auth = getAuth(app);
 
-const createmailandpass = (email,password)=>{
-    return createUserWithEmailAndPassword(auth, email, password);
-}
 
 const Authprovider = ({children}) => {
+    
+    const [loggeduser, setloggeduser] = useState(null)
+    const [loader, setloader] = useState(true)
+    const createmailandpass = (email,password)=>{
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+    const signin = (email, password) =>{
+       return signInWithEmailAndPassword(auth, email, password)
+    }
+
+
     const google = () =>{
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider);
@@ -19,20 +27,25 @@ const Authprovider = ({children}) => {
         const provider = new GithubAuthProvider();
         signInWithPopup(auth,provider)
     }
-    // const facebook = ()=>{
-    //     const provider = new FacebookAuthProvider();
-    //     signInWithPopup(auth, provider)
-    //     .then((result) => {
-    //         const user = result.user;
-    //         const credential = FacebookAuthProvider.credentialFromResult(result);
-    //         const accessToken = credential.accessToken;
-    //       })
-    // }
+    const logout = () =>{
+        signOut(auth)
+        .then()
+        .catch()
+    }
 
     const authinfo = {
-        google,createmailandpass, github
+        google,createmailandpass, github, signin, loggeduser, logout
 
     }
+
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, user =>{
+            setloggeduser(user);
+        })
+        return ()=>{
+            return unsubscribe()
+        }
+    })
 
     return (
         <Authcontext.Provider value={authinfo}>

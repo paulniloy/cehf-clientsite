@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from "../assets/logo.png"
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Authcontext } from '../components/provider/Authprovider';
 
 const Navbar = () => {
-    const [user,seruser] = useState(false)
+    const navigate = useNavigate();
+    const {loggeduser, logout} = useContext(Authcontext);
+    const handlgelogout=() =>{
+        logout()
+    }
     return (
         <div>
             <article className='bg-yellow-800 text-white flex justify-around items-center'>
@@ -14,7 +19,7 @@ const Navbar = () => {
                 <Link to={"/blogs"} className='p-2 rounded-xl hover:scale-110 hover:bg-purple-400'>Blogs</Link>
                 <div className='p-2 rounded-xl hover:scale-110 hover:bg-purple-400'>
                     {
-                        user ? <p>user</p> : <Link to={"/login"}>Login</Link>
+                        loggeduser ? <Link onClick={handlgelogout}>Logout</Link> : <Link to={"/login"}>Login</Link>
                     }
                 </div>
             </article>

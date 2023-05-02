@@ -6,7 +6,7 @@ import { IoLogoGoogle, IoLogoGithub } from "react-icons/io5";
 
 const Login = () => {
     
-    const {user, google, github} = useContext(Authcontext);
+    const {user, google, github, signin} = useContext(Authcontext);
 
     const handlelogin = (event) =>{
         event.preventDefault()
@@ -14,6 +14,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signin(email,password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+          })
     }
     const handlegoogle = () =>{
         google()
