@@ -13,6 +13,7 @@ import Blog from './components/blogs/Blog';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import Authprovider from './components/provider/Authprovider';
+import Recipies from './components/Recepies/Recipies';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration></Registration>
+      },
+      {
+        path: "/recipies",
+        element: <Recipies></Recipies>
       }
     ]
   },

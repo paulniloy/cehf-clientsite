@@ -16,7 +16,7 @@ const Chef = ({ chefdetails }) => {
                     <p>Years of Experiences : {yearsOfExperience}</p>
                     <p>Total likes :{likes}</p>
                 </div>
-                <Link className='bg-green-400 p-2 rounded-xl mb-10'>More Details</Link>
+                <Link to={"/recipies"} className='bg-green-400 p-2 rounded-xl mb-10'>More Details</Link>
             </div>
         </div>
     );
