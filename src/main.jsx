@@ -42,8 +42,9 @@ const router = createBrowserRouter([
         element: <Registration></Registration>
       },
       {
-        path: "/recipies",
-        element: <Recipies></Recipies>
+        path: "/recipies/:id",
+        element: <Recipies></Recipies>,
+        loader: ({params}) => fetch(`http://localhost:3000/chef/${params.id}`)
       }
     ]
   },
