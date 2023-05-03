@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/chef")
+        loader: () => fetch("https://server-site-paulniloy.vercel.app/chef")
       },
       {
         path: "/chef",
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/recipies/:id",
         element: <Privateroute><Recipies></Recipies></Privateroute>,
-        loader: ({params}) => fetch(`http://localhost:3000/chef/${params.id}`)
+        loader: ({params}) => fetch(`https://server-site-paulniloy.vercel.app/chef/${params.id}`)
       }
     ]
   },

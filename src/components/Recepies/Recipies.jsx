@@ -11,7 +11,7 @@ const Recipies = () => {
     const [data, setdata] = useState([]);
     console.log(data);
     useEffect(() => {
-        fetch(`http://localhost:3000/recipies/${id}`)
+        fetch(`https://server-site-paulniloy.vercel.app/recipies/${id}`)
             .then(res => res.json())
             .then(data => setdata(data))
     }, [])

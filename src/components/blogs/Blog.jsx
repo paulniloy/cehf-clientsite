@@ -1,10 +1,16 @@
 import React from 'react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 import Pdf from '../pdf/Pdf';
 
 const Blog = () => {
     return (
         <div>
+            <div>
+            <h1 className='m-10 text-center text-3xl'>This is a Blog page</h1>
+            </div>
+                <div className='w-9/12 mx-auto text-center'>
+                <Pdf/>
+                </div>
             <div className='flex justify-center mt-10'>
             <PDFDownloadLink document={<Pdf/>} fileName='someone'>
             <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex">Download Pdf</button>

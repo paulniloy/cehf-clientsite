@@ -106,9 +106,42 @@ const Home = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
                         </div>
                         <div className="stat-title">World Wide Consumers</div>
-                        <div className="stat-value">12,005</div>
+                        <div className="stat-value">1200k</div>
                     </div>
 
+                </div>
+            </div>
+            <div>
+                <h1 className='text-5xl text-center m-20 font-bold'>Some of Our Cuisines</h1>
+                <div className="carousel w-9/12 h-96 mx-auto">
+                    <div id="slide1" className="carousel-item relative w-full">
+                        <img src="https://foodandroad.com/wp-content/uploads/2021/04/green-papaya-salad-mamao-verde-salada-som-tam-4-2.jpg" className="w-full" />
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide4" className="btn btn-circle">❮</a>
+                            <a href="#slide2" className="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide2" className="carousel-item relative w-full">
+                        <img src="https://foodandroad.com/wp-content/uploads/2021/04/laab-larb-3.jpg" className="w-full" />
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide1" className="btn btn-circle">❮</a>
+                            <a href="#slide3" className="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide3" className="carousel-item relative w-full">
+                        <img src="https://foodandroad.com/wp-content/uploads/2021/04/jok-rice-porridge-2.jpg" className="w-full" />
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide2" className="btn btn-circle">❮</a>
+                            <a href="#slide4" className="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide4" className="carousel-item relative w-full">
+                        <img src="https://foodandroad.com/wp-content/uploads/2021/04/pad-thai-3.jpg" className="w-full" />
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide3" className="btn btn-circle">❮</a>
+                            <a href="#slide1" className="btn btn-circle">❯</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='w-9/12 mx-auto m-10'>
