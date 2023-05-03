@@ -6,7 +6,7 @@ const Chef = ({ chefdetails }) => {
     const { id, picture, name, yearsOfExperience, likes, numberOfRecipes } = chefdetails;
     return (
         <div>
-            <div className="card bg-indigo-100 rounded-2xl shadow-xl flex flex-col items-center">
+            <div className="card bg-yellow-600 bg-opacity-40 rounded-2xl shadow-xl flex flex-col items-center">
                 <figure className="px-10 pt-10">
                     <img src={picture} className="h-40 w-40 rounded-xl" />
                 </figure>

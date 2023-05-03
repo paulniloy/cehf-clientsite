@@ -1,33 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import "./Recipies.css"
 import Food from '../food/Food';
-import Extra from '../extra info/Extra';
 
 const Recipies = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const fulldetails = useLoaderData();
-    const {name, picture, bio, yearsOfExperience, numberOfRecipes, likes, recipies,image, food} = fulldetails;
+    const { name, picture, bio, yearsOfExperience, numberOfRecipes, likes } = fulldetails;
+
+    const [data, setdata] = useState([]);
+    console.log(data);
+    useEffect(() => {
+        fetch(`http://localhost:3000/recipies/${id}`)
+            .then(res => res.json())
+            .then(data => setdata(data))
+    }, [])
     return (
         <div>
-        <div className='flex flex-col items-center justify-center' id='banner'>
-            <div>
-            <img className='h-24 rounded-full' src={picture} alt="" />
+            <div className="hero flex justify-center mt-10 bg-yellow-200 w-9/12 rounded-xl mx-auto p-20">
+                <div className="hero-content text-center">
+                    <div className="max-w-md">
+                        <img className='rounded-lg shadow-xl mb-5' src={picture} alt="" />
+                        <h1 className="text-5xl font-bold">{name}</h1>
+                        <p className="py-4">{bio}</p>
+                        <p className="font-bold">Years of Experience : {yearsOfExperience}</p>
+                        <p className="mt-2 font-bold">Years of Experience : {numberOfRecipes}</p>
+                        <p className="mt-2 font-bold">Likes : {likes}</p>
+
+                    </div>
+                </div>
             </div>
-            <p>Name : {name}</p>
-            <p className='w-1/2'>Bio : {bio}</p>
-            <p>Number of Rescipies: {numberOfRecipes}</p>
-            <p>Year of Experiences : {yearsOfExperience}</p>
-            <p>Likes : {likes}</p>
-        </div>
             <div className='flex
              flex-col justify-center items-center gap-10 mt-20 mb-20'>
                 <h1 className='font-bold text-4xl'>Recipies Details</h1>
             </div>
-            <div>
-                
+            <div className='grid-cols-1 lg:grid-cols-2 grid mx-auto w-9/12 p-5 gap-10 mt-10 mt-10'>
+                {
+                    data.map(food => <Food key={food.id} food={food}></Food>)
+                }
             </div>
-    </div>
+        </div>
     );
 };
 
