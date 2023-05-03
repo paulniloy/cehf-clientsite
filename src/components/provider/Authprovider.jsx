@@ -23,14 +23,14 @@ const Authprovider = ({children}) => {
 
 
     const google = () =>{
-        setloader(true)
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider);
+        setloader(true);
     }
     const github = () =>{
-        setloader(true)
         const provider = new GithubAuthProvider();
         signInWithPopup(auth,provider)
+        setloader(true)
     }
     const logout = () =>{
         signOut(auth)
@@ -54,7 +54,7 @@ const Authprovider = ({children}) => {
     }
 
     const authinfo = {
-        google,createmailandpass, github, signin, loggeduser, logout, loader, profile, name, setname, userprofile
+        google,createmailandpass, github, signin, loggeduser, logout, loader, profile, name, setname, userprofile, setloader
     }
 
     useEffect(()=>{

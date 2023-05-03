@@ -12,7 +12,7 @@ const Login = () => {
     console.log(location);
     const from = location.state?.from?.pathname
     
-    const {loggeduser, google, github, signin} = useContext(Authcontext);
+    const {loggeduser, google, github, signin, setloader} = useContext(Authcontext);
 
     const handlelogin = (event) =>{
         event.preventDefault()
@@ -24,6 +24,7 @@ const Login = () => {
         .then((userCredential) => {
             const user = userCredential.user;
             form.reset()
+            setloader(true)
             navigate(from || "/")
           })
         .catch(error=>{
@@ -36,7 +37,9 @@ const Login = () => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
-          })
+            setloader(true)
+        })
+        navigate(from || "/")
     }
     const handlegit = ()=>{
         github()
@@ -44,6 +47,7 @@ const Login = () => {
             const credential = GithubAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
+            navigate(from || "/")
 
           })
     }
