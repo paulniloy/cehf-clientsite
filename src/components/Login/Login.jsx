@@ -10,7 +10,7 @@ const Login = () => {
     const location = useLocation();
     const [success, setsuccess] = useState('Successfully logged in')
     console.log(location);
-    const from = location.state?.from?.pathname
+    const from = location?.state?.from?.pathname
     
     const {loggeduser, google, github, signin, setloader} = useContext(Authcontext);
 
@@ -25,11 +25,11 @@ const Login = () => {
             const user = userCredential.user;
             form.reset()
             setloader(true)
-            navigate(from || "/")
-          })
+        })
         .catch(error=>{
             seterror(error.message)
         })
+        navigate(from || "/")
     }
     const handlegoogle = () =>{
         google()
