@@ -12,7 +12,7 @@ const Chef = ({ chefdetails }) => {
                 </figure>
                 <div className="card-body items-center text-center p-5">
                     <h2 className="card-title font-bold text-xl mb-3 ">{name}</h2>
-                    <p className='border-4 rounded-xl'>Number of Rescipies <span>{numberOfRecipes}</span></p>
+                    <p className=' rounded-xl'>Number of Recipies <span>{numberOfRecipes}</span></p>
                     <p>Years of Experiences : {yearsOfExperience}</p>
                     <p>Total likes :{likes}</p>
                 </div>
