@@ -3,12 +3,12 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../provider/Authprovider';
 
 const Registration = () => {
-    
-    const {createmailandpass, profile, setname} = useContext(Authcontext);
+
+    const { createmailandpass, profile, setname } = useContext(Authcontext);
     const [error, seterror] = useState('')
     const navigate = useNavigate()
 
-    const handleregistration = (event) =>{
+    const handleregistration = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -16,26 +16,26 @@ const Registration = () => {
         const namevalue = form.name.value;
         const url = form.photo.value;
         console.log(email, password, url, namevalue);
-        if(!email){
+        if (!email) {
             return seterror('error : email section can not be empty')
         }
-        if(!password){
+        if (!password) {
             return seterror('error : password section can not be empty')
         }
-        
+
         createmailandpass(email, password)
-        .then(result=>{
-            const loggeduser = result.user;
-            console.log(result.user);
-            profile(namevalue, url)
-            setname(namevalue)
-            navigate('/')
-            
-        })
-        .catch(error=>{
-            seterror(error.message)
-        })
-        
+            .then(result => {
+                const loggeduser = result.user;
+                console.log(result.user);
+                profile(namevalue, url)
+                setname(namevalue)
+                navigate('/')
+
+            })
+            .catch(error => {
+                seterror(error.message)
+            })
+
     }
     return (
         <div>
@@ -52,19 +52,20 @@ const Registration = () => {
                     </div>
                     <div>
                         <p>Name</p>
-                        <input className='h-10 w-60 bg-white border-2 p-5 rounded-xl mt-2' type="text" name="name" required id="t" require placeholder='name' />
+                        <input className='h-10 w-60 bg-white border-2 p-5 rounded-xl mt-2' type="text" name="name" id="t" require placeholder='name' />
                     </div>
                     <div>
                         <p>Photo Url</p>
-                        <input className='h-10 w-60 bg-white border-2 p-5 rounded-xl mt-2' type="url" name="photo" required id="u" require placeholder='url' />
+                        <input className='h-10 w-60 bg-white border-2 p-5 rounded-xl mt-2' type="url" name="photo" id="u" require placeholder='url' />
                     </div>
                 </div>
                 <button type='submit' className='mt-4 px-5 py-2 rounded-xl hover:bg-yellow-600 border-2'>Sign up</button>
-            <p className='mt-5'>Do you have existing account? <NavLink to={"/login"} className='underline text-blue-400'>Login</NavLink></p>
-            <div className='text-red-600'>
-                {error}
-            </div>
+                <p className='mt-5'>Do you have existing account? <NavLink to={"/login"} className='underline text-blue-400'>Login</NavLink></p>
+                <div className='text-red-600'>
+                    {error}
+                </div>
             </form>
+            
         </div>
     );
 };

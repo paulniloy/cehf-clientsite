@@ -17,7 +17,7 @@ const Recipies = () => {
     }, [])
     return (
         <div>
-            <div className="hero flex justify-center mt-10 bg-yellow-200 w-9/12 rounded-xl mx-auto p-20">
+            <div className="hero flex justify-center mt-10 bg-gray-600 w-9/12 rounded-xl mx-auto p-20">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
                         <img className='rounded-lg shadow-xl mb-5' src={picture} alt="" />

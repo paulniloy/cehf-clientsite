@@ -43,9 +43,9 @@ const Home = () => {
                     chefdetails.map(chefdetails => <Chef chefdetails={chefdetails}></Chef>)
                 }
             </div>
-            <div className='flex-col lg:flex-row lg:flex text-center mb-10 items-center justify-evenly'>
+            <div className='flex-col lg:flex-row lg:flex text-center mb-10 items-center w-9/12 mx-auto justify-evenly'>
                 <div>
-                    <img className='h-96' src="deliver.jpg" alt="" />
+                    <img className='lg:h-96 mb-10' src="deliver.jpg" alt="" />
                 </div>
                 <div>
                     <h1 className='text-5xl font-bold mb-5 text-yellow-600'>Delivery Options</h1>
@@ -60,7 +60,7 @@ const Home = () => {
                 </div>
             </div>
             <div className=''>
-                <div className="stats shadow bg-amber-50 w-9/12 mx-auto p-10 flex lg:flex-row flex-col items-center justify-around mb-10">
+                <div className="stats shadow bg-gray-700 w-9/12 mx-auto p-10 flex lg:flex-row flex-col items-center justify-around mb-10">
 
                     <div className="stat mb-5 flex flex-col items-center">
                         <div className="stat-figure text-secondary">

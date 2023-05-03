@@ -5,11 +5,12 @@ import Pdf from '../pdf/Pdf';
 const Blog = () => {
     return (
         <div>
-            <Pdf/>
+            <div className='flex justify-center mt-10'>
             <PDFDownloadLink document={<Pdf/>} fileName='someone'>
-                <button>Download</button>
+            <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex">Download Pdf</button>
             </PDFDownloadLink>
-            <div className='bg-yellow-100 p-20'>
+            </div>
+            <div className=' p-20'>
                 <div className='text-3xl font-bold'>Qus. What are the differences between controlled and uncontrolled components?</div>
                 <div className='p-10 italic'>Ans. In React, controlled and uncontrolled components refer to the way that form inputs are managed and updated in the component's state. The main differences between controlled and uncontrolled components are:
 
@@ -23,7 +24,7 @@ const Blog = () => {
 
                     Performance: Controlled components can have better performance in some cases, as React can optimize updates and re-renders based on changes to state. Uncontrolled components can be faster in some cases, as they don't require state updates and re-renders for every input change.</div>
             </div>
-            <div className='bg-yellow-100 p-20'>
+            <div className=' p-20'>
                 <div className='text-3xl font-bold'>Qus. How to validate React props using PropTypes in react?</div>
                 <div className='p-10 italic'>Ans. In React, you can use the PropTypes library to validate the types and values of props passed to a component. Here's an example of how to validate React props using PropTypes:
 
@@ -31,7 +32,7 @@ const Blog = () => {
                     Next, you need to import the PropTypes library in your component file.Define propTypes: Finally, you can define the propTypes for your component by adding a propTypes property to the component class or function, and assigning it an object with the prop names as keys and their respective PropTypes as values.
                 </div>
             </div>
-            <div className='bg-yellow-100 p-20'>
+            <div className=' p-20'>
                 <div className='text-3xl font-bold'>Qus. Differences between node.js vs express.js?</div>
                 <div className='p-10 italic'>Ans. Node.js and Express.js are both widely used technologies for building server-side applications using JavaScript. Here are some of the main differences between Node.js and Express.js:
 
@@ -46,7 +47,7 @@ const Blog = () => {
                     Template rendering: Node.js does not provide built-in support for template rendering, but developers can use third-party modules for this purpose. Express.js provides built-in support for template rendering, with support for popular template engines like EJS, Handlebars, and Pug.
                 </div>
             </div>
-            <div className='bg-yellow-100 p-20'>
+            <div className='p-20'>
                 <div className='text-3xl font-bold'>Qus. What is a custom hook, and why will you create a custom hook?</div>
                 <div className='p-10 italic'>Ans. In React, a custom hook is a JavaScript function that starts with the prefix use and follows the same rules as React's built-in hooks (such as useState, useEffect, etc.). A custom hook allows you to reuse functionality across different components and encapsulate complex logic in a simple, reusable function.
 

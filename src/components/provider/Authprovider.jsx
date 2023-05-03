@@ -12,6 +12,7 @@ const Authprovider = ({children}) => {
     const [loggeduser, setloggeduser] = useState(null)
     const [email, setemail] = useState(null)
     const [loader, setloader] = useState(true)
+    const [userprofile, setuserprofile] = useState(null);
     const createmailandpass = (email,password)=>{
         setloader(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -54,7 +55,7 @@ const Authprovider = ({children}) => {
     }
 
     const authinfo = {
-        google,createmailandpass, github, signin, loggeduser, logout, loader, email, profile, name, setname
+        google,createmailandpass, github, signin, loggeduser, logout, loader, email, profile, name, setname, userprofile
     }
 
     useEffect(()=>{
@@ -64,6 +65,7 @@ const Authprovider = ({children}) => {
             console.log(user);
             setemail(user.email)
             setname(user.displayName)
+            setuserprofile(user.photoURL)
         })
         return ()=>{
             return unsubscribe()
