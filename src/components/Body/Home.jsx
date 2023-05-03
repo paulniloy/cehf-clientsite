@@ -63,7 +63,7 @@ const Home = () => {
             <h1 className='text-center text-5xl font-bold mt-5'>Chef Details</h1>
             <div className='grid-cols-1 lg:grid-cols-3 gap-5 m-20 grid'>
                 {
-                    chefdetails.map(chefdetails => <Chef chefdetails={chefdetails}></Chef>)
+                    chefdetails.map(chefdetails => <Chef key={chefdetails.id} chefdetails={chefdetails}></Chef>)
                 }
             </div>
             <div className='flex-col lg:flex-row lg:flex text-center mb-10 items-center w-9/12 mx-auto justify-evenly'>

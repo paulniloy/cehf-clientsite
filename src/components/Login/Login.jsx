@@ -8,6 +8,7 @@ const Login = () => {
     const [error, seterror] = useState('')
     const navigate = useNavigate();
     const location = useLocation();
+    const [success, setsuccess] = useState('Successfully logged in')
     console.log(location);
     const from = location.state?.from?.pathname
     
@@ -67,7 +68,7 @@ const Login = () => {
                 <button onClick={handlegit}><IoLogoGithub className='h-10 w-10'/></button>
             </div>
                 {
-                    loggeduser ? "you've successfully logged in" : error
+                    loggeduser ? <p className='text-green-400'>{success}</p> : error
                 }
             </form>
         </div>
