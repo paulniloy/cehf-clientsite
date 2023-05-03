@@ -4,8 +4,15 @@ import { useLoaderData } from 'react-router-dom';
 import Chef from '../chef details/Chef';
 import "./Home.css"
 import { IoStar, IoStarHalf } from "react-icons/io5";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
+
+    const handletoast = () => {
+        toast("Welcome to the Chef Paradise");
+    }
+
     const chefdetails = useLoaderData();
     return (
         <div>
@@ -20,16 +27,32 @@ const Home = () => {
                     <IoStar className='fill-yellow-600' />
                     <IoStarHalf className='fill-yellow-600' />
                 </div>
-                <div className=' border-2 rounded-xl hover:bg-yellow-600 hover:text-white p-5 border-yellow-600 text-6xl font-bold text-yellow-600'>Welcome</div>
+                <div onMouseOver={handletoast} className=' border-2 rounded-xl hover:bg-yellow-600 hover:text-white p-5 border-yellow-600 text-6xl font-bold text-yellow-600'>Welcome</div>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={1000}
+                    hideProgressBar={true}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss={true}
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
                 <div className='w-1/2 text-center mt-10 text-yellow-600'>
                     Welcome to our hotel! We are delighted to have you as our guest and we hope you have a comfortable and enjoyable stay with us. If you need anything during your time here, please don't hesitate to ask our friendly staff who are always available to assist you. Thank you for choosing our hotel for your accommodation needs.
                 </div>
             </div>
-            <div className='flex-col lg:flex-row lg:flex items-center justify-center gap-10 p-10'>
+            <div className='text-center m-20'>
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">The world's <span class="text-blue-600 dark:text-blue-500">Number #1</span> Chef Platform.</h1>
+                <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Chef's website number one is a one-stop-shop for food lovers and culinary enthusiasts. It features an extensive collection of recipes, cooking tips, and techniques, along with a blog, community forums, and online store. The website's sleek and modern design makes it easy to navigate, and the user-friendly interface ensures a seamless browsing experience.</p>
+            </div>
+            <div className='flex-col lg:flex-row lg:flex items-center justify-center gap-10 w-9/12 mx-auto p-10'>
                 <div>
                     <img className='h-80 rounded-3xl' src={banner} alt="" />
                 </div>
-                <div className='flex flex-col items-center w-1/2 p-5'>
+                <div className='flex flex-col items-center w-1/2 mx-auto p-2'>
                     <h1 className='text-5xl font-bold mb-5 text-yellow-600 '>Features</h1>
                     <p className='italic text-start'>
                         Our restaurant offers a range of dishes that are flavorful and aromatic, with a focus on fresh ingredients and a balance of spicy, sour, sweet, and salty flavors.
@@ -87,6 +110,11 @@ const Home = () => {
                     </div>
 
                 </div>
+            </div>
+            <div className='w-9/12 mx-auto m-10'>
+                <blockquote class="text-xl italic font-semibold text-center text-gray-900 dark:text-white">
+                    <p>""Good food is a celebration of life, and chefs are the conductors of this symphony. Their pricing reflects the passion, effort, and expertise that goes into creating each dish.""</p>
+                </blockquote>
             </div>
         </div>
     );
