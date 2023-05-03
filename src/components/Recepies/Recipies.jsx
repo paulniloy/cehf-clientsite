@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import "./Recipies.css"
 import Food from '../food/Food';
+import LazyLoad from 'react-lazy-load';
 
 const Recipies = () => {
     const { id } = useParams();
@@ -20,7 +21,10 @@ const Recipies = () => {
             <div className="hero flex justify-center mt-10 bg-gray-600 w-9/12 rounded-xl mx-auto p-20">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
-                        <img className='rounded-lg shadow-xl mb-5' src={picture} alt="" />
+                        <LazyLoad threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
+                            <img className='rounded-lg shadow-xl mb-5' src={picture} alt="" />
+                        </LazyLoad>
+
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-4">{bio}</p>
                         <p className="font-bold">Years of Experience : {yearsOfExperience}</p>
