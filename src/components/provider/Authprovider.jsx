@@ -10,7 +10,6 @@ const auth = getAuth(app);
 const Authprovider = ({children}) => {
     const [name, setname] = useState('')
     const [loggeduser, setloggeduser] = useState(null)
-    const [email, setemail] = useState(null)
     const [loader, setloader] = useState(true)
     const [userprofile, setuserprofile] = useState(null);
     const createmailandpass = (email,password)=>{
@@ -55,7 +54,7 @@ const Authprovider = ({children}) => {
     }
 
     const authinfo = {
-        google,createmailandpass, github, signin, loggeduser, logout, loader, email, profile, name, setname, userprofile
+        google,createmailandpass, github, signin, loggeduser, logout, loader, profile, name, setname, userprofile
     }
 
     useEffect(()=>{
@@ -63,7 +62,6 @@ const Authprovider = ({children}) => {
             setloggeduser(user);
             setloader(false)
             console.log(user);
-            setemail(user.email)
             setname(user.displayName)
             setuserprofile(user.photoURL)
         })
