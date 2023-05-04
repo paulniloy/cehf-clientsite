@@ -70,7 +70,7 @@ const Login = () => {
                 <div className='flex justify-center gap-10 mt-5'>
                 </div>
                 {
-                    loggeduser ? <p className='text-green-400'>{success}</p> : error
+                    loggeduser ? <p className='text-green-400'>{success}</p> : <p className='text-red-400'>{error}</p>
                 }
             </form>
             <div className='flex justify-center gap-20 w-1/2 mx-auto'>

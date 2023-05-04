@@ -3,6 +3,8 @@ import logo from "../assets/logo.png"
 import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../components/provider/Authprovider';
 import "./Nav.css"
+import { FaUser } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -19,8 +21,26 @@ const Navbar = () => {
                 </div>
                 <div className='flex flex-col items-center lg:flex lg:flex-row'>
                     <NavLink to={"/"} className='py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700'>Home</NavLink>
+                    <NavLink to={"/about"} className='py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700'>About us</NavLink>
                     <NavLink to={"/blogs"} className='py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700'>Blogs</NavLink>
-                    <div className='p-2 rounded-xl'>
+                    <div>
+                    {
+                        <p onClick={()=> toast("user not found")} className= {`${loggeduser ? 'invisible':'visible'} flex gap-5 items-center py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700`} >User <FaUser /></p>
+                    }
+                    <ToastContainer
+                    position="top-center"
+                    autoClose={1000}
+                    hideProgressBar={true}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss={true}
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
+                </div>
+                    <div>
                         {
                             (loggeduser && userprofile) ? <div class="tooltip"><img src={userprofile} className={`w-20 rounded-xl mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700`} />
                                 <span className="tooltiptext">{name}</span>

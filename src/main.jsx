@@ -15,6 +15,7 @@ import Registration from './components/Registration/Registration';
 import Authprovider from './components/provider/Authprovider';
 import Recipies from './components/Recepies/Recipies';
 import Privateroute from './components/Privateroute/Privateroute';
+import Aboutus from './components/about us/Aboutus';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch("https://server-site-paulniloy.vercel.app/chef")
+      },
+      {
+        path: "/about",
+        element: <Aboutus></Aboutus>
       },
       {
         path: "/chef",
