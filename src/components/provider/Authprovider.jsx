@@ -57,7 +57,7 @@ const Authprovider = ({children}) => {
     }
 
     const authinfo = {
-        google,createmailandpass, github, signin, loggeduser, logout, loader, profile, name, setname, userprofile, setloader
+        google,createmailandpass, github, signin, loggeduser, logout, loader, profile, name, setname, userprofile, setloader, setuserprofile
     }
 
     useEffect(()=>{
