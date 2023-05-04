@@ -10,4 +10,5 @@ Website title : Paradise Chef
 - In the footer section there will be some information about the page and contact details.
 
 
-Live site link : 
+Live site link : https://myassignmentten.web.app/
+Live server link : https://server-site-paulniloy.vercel.app/
