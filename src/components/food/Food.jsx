@@ -17,7 +17,7 @@ const Food = ({ food }) => {
     }
     return (
         <div>
-            <div className="card bg-gray-800 shadow-xl p-5 rounded-xl ">
+            <div className="card bg-gray-800 shadow-xl p-5 rounded-xl text-white">
                 <div className="card-body">
                     <h2 className="card-title text-2xl text-center font-bold mb-5"> <FaFeatherAlt/> {name}</h2>
                     <div>

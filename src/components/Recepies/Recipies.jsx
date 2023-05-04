@@ -19,7 +19,7 @@ const Recipies = () => {
     }, [])
     return (
         <div>
-            <div className="hero flex justify-center mt-10 bg-gray-600 w-9/12 rounded-xl mx-auto p-20">
+            <div className="hero text-white flex justify-center mt-10 bg-gray-600 w-9/12 rounded-xl mx-auto p-20">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
                         <LazyLoad threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
@@ -35,7 +35,7 @@ const Recipies = () => {
                 </div>
             </div>
             <div className='flex
-             flex-col justify-center items-center gap-10 mt-20 mb-20'>
+             flex-col text-white justify-center items-center gap-10 mt-20 mb-20'>
                 <h1 className='font-bold text-4xl'>Recipies Details</h1>
             </div>
             <div className='grid-cols-1 lg:grid-cols-2 grid mx-auto w-9/12 p-5 gap-10 mt-10 mt-10'>

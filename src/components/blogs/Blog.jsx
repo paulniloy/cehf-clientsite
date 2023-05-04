@@ -5,8 +5,8 @@ import Pdf from '../pdf/Pdf';
 const Blog = () => {
     return (
         <div>
-            <div>
-            <h1 className='m-10 text-center text-3xl'>This is a Blog page</h1>
+            <div className='text-white'>
+            <h1 className='m-10 text-center text-white text-3xl'>This is a Blog page</h1>
             </div>
                 <div className='w-9/12 mx-auto text-center'>
                 <Pdf/>

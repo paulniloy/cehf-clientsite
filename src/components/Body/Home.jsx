@@ -86,27 +86,27 @@ const Home = () => {
                 <div className="stats shadow bg-gray-700 w-9/12 mx-auto p-10 flex lg:flex-row flex-col items-center justify-around mb-10">
 
                     <div className="stat mb-5 flex flex-col items-center">
-                        <div className="stat-figure text-secondary">
+                        <div className="text-white stat-figure text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <div className="stat-title">Current Workers</div>
-                        <div className="stat-value">31K</div>
+                        <div className="stat-title text-white ">Current Workers</div>
+                        <div className="stat-value text-white ">31K</div>
                     </div>
 
                     <div className="stat mb-5 flex flex-col items-center">
-                        <div className="stat-figure text-secondary">
+                        <div className="text-white  stat-figure text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
                         </div>
-                        <div className="stat-title">New Online Deliveries</div>
-                        <div className="stat-value">420k</div>
+                        <div className="text-white stat-title">New Online Deliveries</div>
+                        <div className="stat-value text-white ">420k</div>
                     </div>
 
                     <div className="stat flex flex-col items-center">
-                        <div className="stat-figure text-secondary">
+                        <div className="text-white  stat-figure text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
                         </div>
-                        <div className="stat-title">World Wide Consumers</div>
-                        <div className="stat-value">1200k</div>
+                        <div className="stat-title text-white ">World Wide Consumers</div>
+                        <div className="stat-value text-white ">1200k</div>
                     </div>
 
                 </div>
