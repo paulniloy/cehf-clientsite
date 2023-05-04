@@ -14,6 +14,7 @@ const Login = () => {
     const from = location?.state?.from?.pathname;
 
     const { loggeduser, google, github, signin, setloader } = useContext(Authcontext);
+    // console.log(loggeduser);
 
     const handlegoogle = () => {
         console.log('handlge loging click');
@@ -26,7 +27,6 @@ const Login = () => {
             })
     }
     const handlelogin = (event) => {
-        console.log('handle login clicked');
         const form = event.target;
         event.preventDefault()
         const email = form.email.value;

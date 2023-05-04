@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../provider/Authprovider';
 
 const Registration = () => {
 
-    const { createmailandpass, profile, setname, setuserprofile } = useContext(Authcontext);
-    const [error, seterror] = useState('')
-    const navigate = useNavigate()
-
+    const { createmailandpass, profile, setname, setloader, name, setuserprofile } = useContext(Authcontext);
+    const [error, seterror] = useState('');
+    const [success, setsuccess] = useState('');
+    const navigate = useNavigate();
+    
     const handleregistration = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -22,19 +23,18 @@ const Registration = () => {
         if (!password) {
             return seterror('error : password section can not be empty')
         }
-
         createmailandpass(email, password)
             .then(result => {
                 const loggeduser = result.user;
-                console.log(result.user);
-                profile(namevalue, url)
-                setuserprofile(url) 
-                setname(namevalue)
-                navigate('/login')
-
+                profile(namevalue, url);
+                // setname(namevalue);
+                navigate("/");
+                seterror('');
+                setsuccess('Successfully Registered');            
             })
             .catch(error => {
                 seterror(error.message)
+                setsuccess('')
             })
 
     }
@@ -45,25 +45,28 @@ const Registration = () => {
                 <div>
                     <div>
                         <p>Email</p>
-                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2'  type="email" name="email" id="e" require placeholder='email' />
+                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2'  type="email" name="email" id="e" required placeholder='email' />
                     </div>
                     <div>
                         <p>Password</p>
-                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2'  type="password" name="password" id="p" require placeholder='password' />
+                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2'  type="password" name="password" id="p" required placeholder='password' />
                     </div>
                     <div>
                         <p>Name</p>
-                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2'  type="text" name="name" id="t" require placeholder='name' />
+                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2' required type="text" name="name" id="t" placeholder='name' />
                     </div>
                     <div>
                         <p>Photo Url</p>
-                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2'  type="url" name="photo" id="u" require placeholder='url' />
+                        <input className='focus:bg-white focus:text-black  h-10 w-60 bg-gray-800 border-2 p-5 rounded-xl mt-2' required type="url" name="photo" id="u" placeholder='url' />
                     </div>
                 </div>
                 <button type='submit' className='border mt-4 px-5 py-2 rounded-xl hover:bg-green-600 hover:text-white shadow-lg'>Sign up</button>
                 <p className='mt-5'>Do you have existing account? <NavLink to={"/login"} className='underline text-blue-400 hover:text-green-600'>Login</NavLink></p>
                 <div className='text-red-600'>
                     {error}
+                </div>
+                <div className='text-green-600'>
+                    {success}
                 </div>
             </form>
             

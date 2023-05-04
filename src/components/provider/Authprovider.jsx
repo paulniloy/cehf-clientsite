@@ -39,14 +39,15 @@ const Authprovider = ({children}) => {
         .catch(error=>{
             console.log(error.message)
         })
+        return loggeduser;
     }
     const profile = (name, url) =>{
         const user = auth.currentUser;
         if(user){
-            setloader(true);
             return updateProfile(user, {
                 displayName: `${name}`, photoURL: `${url}`
             }).then(() => {
+                setloader(true);
                 // Profile updated!
                 // ...
             }).catch((error) => {
@@ -63,10 +64,10 @@ const Authprovider = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, user =>{
             setloggeduser(user);
-            setloader(false)
+            setloader(false);
             console.log(user);
-            setname(user.displayName)
-            setuserprofile(user.photoURL)
+            setname(user.displayName);
+            setuserprofile(user.photoURL);
         })
         return ()=>{
             return unsubscribe()
