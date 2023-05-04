@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import "./Recipies.css"
 import Food from '../food/Food';
 import LazyLoad from 'react-lazy-load';
+import { FaRegThumbsUp, FaUser } from 'react-icons/fa';
 
 const Recipies = () => {
     const { id } = useParams();
@@ -24,7 +25,6 @@ const Recipies = () => {
                         <LazyLoad threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
                             <img className='rounded-lg shadow-xl mb-5' src={picture} alt="" />
                         </LazyLoad>
-
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-4">{bio}</p>
                         <p className="font-bold">Years of Experience : {yearsOfExperience}</p>

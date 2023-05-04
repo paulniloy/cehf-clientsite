@@ -23,27 +23,30 @@ const Authprovider = ({children}) => {
 
 
     const google = () =>{
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider);
         setloader(true);
+        const provider = new GoogleAuthProvider();
+         return signInWithPopup(auth, provider);
     }
     const github = () =>{
-        const provider = new GithubAuthProvider();
-        signInWithPopup(auth,provider)
         setloader(true)
+        const provider = new GithubAuthProvider();
+        return signInWithPopup(auth,provider)
     }
     const logout = () =>{
+        setloader(true)
         signOut(auth)
         .then()
-        .catch()
+        .catch(error=>{
+            console.log(error.message)
+        })
     }
     const profile = (name, url) =>{
         const user = auth.currentUser;
         if(user){
+            setloader(true);
             return updateProfile(user, {
                 displayName: `${name}`, photoURL: `${url}`
             }).then(() => {
-                setloader(true);
                 // Profile updated!
                 // ...
             }).catch((error) => {
